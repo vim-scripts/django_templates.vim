@@ -1,0 +1,5 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3121
+
+Almost each django template keyword or filter may be accessed by its short cut (and by the menu if using a GUI) in each of 3 modes.
+If you don't like to use "<F8>" as a trigger you can change it to, for examle "?".
+Open asp.vim in Vim editor and substitute :%s/<F8>/?/g 
