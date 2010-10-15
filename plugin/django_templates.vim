@@ -1,6 +1,6 @@
-" django_templates.vim - version 0.1 - Macros and menus for django template documents
+" django_templates.vim - version 0.2 - Macros and menus for django template documents
 "
-" Copyright 2010 by TramTram brano.paula.sk
+" Copyright 2010 by branislav.sobotka@gmail.com
 "  Permission to copy this document or make derivative works is granted
 "  without condition.
 "
@@ -32,6 +32,10 @@
 " Visual Mode:
 " Wrap selected text into a keyword
 " *****************************************************************************
+
+"variable
+map <F10> i{{  }}<Esc>2hi
+imap <F10> {{  }}<Esc>2hi
 
 "autoescape
 map <F8>ae i{% autoescape on/off %}<CR><CR>{% endautoescape %}<Esc>1ki
@@ -109,19 +113,19 @@ imap <F8>ife {% if  %}<CR><CR>{% else %}<CR><CR>{% endif %}<Esc>3ki
 vmap <F8>ife <Esc>`>a{% else %}<CR><CR>{% endif %}<Esc>`<i{% if  %}<CR><Esc>i
 
 "ifchanged
-map <F8>ifc i{% ifchanged  %}<CR><CR>{% endif %}<Esc>1ki
-imap <F8>ifc {% ifchanged  %}<CR><CR>{% endif %}<Esc>1ki
-vmap <F8>ifc <Esc>`>a{% endif %}<Esc>`<i{% ifchanged  %}<CR><Esc>i
+map <F8>ifc i{% ifchanged  %}<CR><CR>{% endifchanged %}<Esc>1ki
+imap <F8>ifc {% ifchanged  %}<CR><CR>{% endifchanged %}<Esc>1ki
+vmap <F8>ifc <Esc>`>a{% endifchanged %}<Esc>`<i{% ifchanged  %}<CR><Esc>i
 
 "ifequal
-map <F8>ifeq i{% ifequal  %}<CR><CR>{% endif %}<Esc>1ki
-imap <F8>ifeq {% ifequal  %}<CR><CR>{% endif %}<Esc>1ki
-vmap <F8>ifeq <Esc>`>a{% endif %}<Esc>`<i{% ifequal  %}<CR><Esc>i
+map <F8>ifeq i{% ifequal  %}<CR><CR>{% endifequal %}<Esc>1ki
+imap <F8>ifeq {% ifequal  %}<CR><CR>{% endifequal %}<Esc>1ki
+vmap <F8>ifeq <Esc>`>a{% endifequal %}<Esc>`<i{% ifequal  %}<CR><Esc>i
 
 "ifnotequal
-map <F8>ifne i{% ifnotequal  %}<CR><CR>{% endif %}<Esc>1ki
-imap <F8>ifne {% ifnotequal  %}<CR><CR>{% endif %}<Esc>1ki
-vmap <F8>ifne <Esc>`>a{% endif %}<Esc>`<i{% ifnotequal  %}<CR><Esc>i
+map <F8>ifne i{% ifnotequal  %}<CR><CR>{% endifnotequal %}<Esc>1ki
+imap <F8>ifne {% ifnotequal  %}<CR><CR>{% endifnotequal %}<Esc>1ki
+vmap <F8>ifne <Esc>`>a{% endifnotequal %}<Esc>`<i{% ifnotequal  %}<CR><Esc>i
 
 "include
 map <F8>in i{% include  %}<Esc>2hi
@@ -647,6 +651,9 @@ if has("gui")
 	inoremenu Django templates.Filters.Yesno<Tab><F8>yn yesno <Esc>i
 	
 	:amenu Django templates.-Sep0-	:
+	
+	nnoremenu Django templates.{{\ }}<Tab><F10> i{{  }}<Esc>2hi
+	inoremenu Django templates.{{\ }}<Tab><F10> {{  }}<Esc>2hi
 
 	nnoremenu Django templates.Autoescape<Tab><F8>ae i{% autoescape on/off %}<CR><CR>{% endautoescape %}<Esc>1ki
 	inoremenu Django templates.Autoescape<Tab><F8>ae {% autoescape on/off %}<CR><CR>{% endautoescape %}<Esc>1ki
