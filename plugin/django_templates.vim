@@ -70,6 +70,10 @@ map <F8>for i{% for o in object_list %}<CR><CR>{% endfor %}<Esc>1ki
 imap <F8>for {% for o in object_list %}<CR><CR>{% endfor %}<Esc>1ki
 vmap <F8>for <Esc>`>a<CR>{% endfor %}<Esc>`<i{% for o in object_list %} <CR><Esc>i
 
+map <F8>forl i{% for o in object_list %}{% endfor %}<Esc>11hi
+imap <F8>forl {% for o in object_list %}{% endfor %}<Esc>11hi
+vmap <F8>forl <Esc>`>a{% endfor %}<Esc>`<i{% for o in object_list %} <Esc>i
+
 "for ... empty
 map <F8>fore i{% for o in object_list %}<CR><CR>{% empty %}<CR><CR>{% endfor %}<Esc>3ki
 imap <F8>fore {% for o in object_list %}<CR><CR>{% empty %}<CR><CR>{% endfor %}<Esc>3ki
@@ -107,10 +111,19 @@ map <F8>if i{% if  %}<CR><CR>{% endif %}<Esc>1ki
 imap <F8>if {% if  %}<CR><CR>{% endif %}<Esc>1ki
 vmap <F8>if <Esc>`>a{% endif %}<Esc>`<i{% if  %}<CR><Esc>i
 
+map <F8>ifl i{% if  %}{% endif %}<Esc>10hi
+imap <F8>ifl {% if  %}{% endif %}<Esc>10hi
+vmap <F8>ifl <Esc>`>a{% endif %}<Esc>`<i{% if  %}<Esc>i
+
 "if ... else
 map <F8>ife i{% if  %}<CR><CR>{% else %}<CR><CR>{% endif %}<Esc>3ki
 imap <F8>ife {% if  %}<CR><CR>{% else %}<CR><CR>{% endif %}<Esc>3ki
 vmap <F8>ife <Esc>`>a{% else %}<CR><CR>{% endif %}<Esc>`<i{% if  %}<CR><Esc>i
+
+map <F8>ifel i{% if  %}{% else %}{% endif %}<Esc>10hi
+imap <F8>ifel {% if  %}{% else %}{% endif %}<Esc>10hi
+vmap <F8>ifel <Esc>`>a{% else %} {% endif %}<Esc>`<i{% if  %}<Esc>i
+
 
 "ifchanged
 map <F8>ifc i{% ifchanged  %}<CR><CR>{% endifchanged %}<Esc>1ki
@@ -676,6 +689,9 @@ if has("gui")
 	nnoremenu Django_templates.For<Tab><F8>for i{% for o in object_list %}<CR><CR>{% endfor %}<Esc>1ki
 	inoremenu Django_templates.For<Tab><F8>for {% for o in object_list %}<CR><CR>{% endfor %}<Esc>1ki
 
+	nnoremenu Django_templates.For_inline<Tab><F8>for i{% for o in object_list %}{% endfor %}<Esc>11hi
+	inoremenu Django_templates.For_inline<Tab><F8>for {% for o in object_list %}{% endfor %}<Esc>11hi
+
 	nnoremenu Django_templates.For_Empty<Tab><F8>fore i{% for o in object_list %}<CR><CR>{% empty %}<CR><CR>{% endfor %}<Esc>3ki
 	inoremenu Django_templates.For_Empty<Tab><F8>fore {% for o in object_list %}<CR><CR>{% empty %}<CR><CR>{% endfor %}<Esc>3ki
 
@@ -712,9 +728,15 @@ if has("gui")
 
 	nnoremenu Django_templates.If<Tab><F8>if i{% if  %}<CR><CR>{% endif %}<Esc>1ki
 	inoremenu Django_templates.If<Tab><F8>if {% if  %}<CR><CR>{% endif %}<Esc>1ki
-	
+
+	nnoremenu Django_templates.If_inline<Tab><F8>ifl i{% if  %}{% endif %}<Esc>10hi
+	inoremenu Django_templates.If_inline<Tab><F8>ifl {% if  %}{% endif %}<Esc>10hi
+
 	nnoremenu Django_templates.If_Else<Tab><F8>ife i{% if  %}<CR><CR>{% else %}<CR><CR>{% endif %}<Esc>3ki
 	inoremenu Django_templates.If_Else<Tab><F8>ife {% if  %}<CR><CR>{% else %}<CR><CR>{% endif %}<Esc>3ki
+
+	nnoremenu Django_templates.If_Else_inline<Tab><F8>ifel i{% if  %}{% else %}{% endif %}<Esc>10hi
+	inoremenu Django_templates.If_Else_inline<Tab><F8>ifel {% if  %}{% else %}{% endif %}<Esc>10hi
 
 	nnoremenu Django_templates.Ifchanged<Tab><F8>ifc i{% ifchanged  %}<CR><CR>{% endifchanged %}<Esc>1ki
 	inoremenu Django_templates.Ifchanged<Tab><F8>ifc {% ifchanged  %}<CR><CR>{% endifchanged %}<Esc>1ki
